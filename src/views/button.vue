@@ -1,5 +1,10 @@
 <style lang="less">
-
+.wrapper {
+    > div {
+        margin-right: 5px;
+        display: inline-block;
+    }
+}
 </style>
 
 <template>
@@ -10,6 +15,7 @@
         <div>
             <base-button btnText="提交" @confirm="updata"></base-button>
         </div>
+        <br>
         <span>用户：{{role || '--'}}</span><span>自</span><span>{{startDate || '--'}}</span><span>起您的学习时长还剩</span><span>{{date || '--'}}</span><span>小时</span>
     </div>
 </template>

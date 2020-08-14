@@ -20,6 +20,7 @@
                 font-size: 14px;
                 line-height: 30px;
                 text-align: center;
+                margin-top: 5px;
                 border: 1px solid @color-primary;
                 border-radius: @btn-border-radius;
                 margin-right: 15px;
