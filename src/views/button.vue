@@ -37,29 +37,20 @@
             confirm() {
                 let that = this;
                 let roleInfo = JSON.parse(decodeURIComponent(window.localStorage.getItem('roleInfo')));
-                axios.post('/sqlapi/studyStatus', {
-                    name: 'admin'
+                axios.post('/sqlapi/common_api', {
+                    table_name: 'study_status',
+                    pageNumber: 1,
+                    pageSize: 2
                 }).then(function (res) {
                     let data = res.data || {};
                     data = data.data_list || {};
-
-                    that.startDate = data.time;
-                    that.role = data.user;
-                    that.date = data.belong;
+                    console.log(data)
                 }).catch(function (error) {
                     console.log(error);
                 });
             },
             updata() {
-                let that = this;
-                let roleInfo = JSON.parse(decodeURIComponent(window.localStorage.getItem('roleInfo')));
-                axios.post('/sqlapi/updataStudyStatus', {
-                    name: '18613361046'
-                }).then(function (res) {
-                    console.log('修改成功', res)
-                }).catch(function (error) {
-                    console.log(error);
-                });
+
             }
         }
     }

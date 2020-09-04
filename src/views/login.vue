@@ -78,6 +78,16 @@
                 this.passWord = data || '';
             },
             confirm() {
+                // node+express前端服务器
+                // axios.post('/get_data', {
+                //     name: encodeURIComponent('test.data')
+                // }).then(function (res) {
+                //     console.log(res.data)
+                // }).catch(function (error) {
+                //     console.log(error);
+                // });
+
+                // node+express+mysql前端服务器
                 let that = this;
                 axios.post('/sqlapi/login', {
                     username: that.userName,

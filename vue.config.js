@@ -20,5 +20,16 @@ module.exports = {
                 }
             }
         }
+        // port: 8081,
+        // proxy: {
+        //     '/': {
+        //         target: 'http://192.168.20.14:3000/',
+        //         ws: true,
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/': ''
+        //         }
+        //     }
+        // }
     }
 };
