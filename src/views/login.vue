@@ -94,12 +94,12 @@
                     password: that.passWord
                 }).then(function (res) {
                     var data =  res.data || {};
-                    if (data.status === 1) {
+                    if (data.status === 200) {
                         window.localStorage.setItem('roleInfo', encodeURIComponent(JSON.stringify(data.data_list)));
                         that.alertText = '登录成功';
                         setTimeout(function () {
                             that.alertText = '';
-                            that.$router.push({path: '/index'})
+                            that.$router.push({path: '/index'});
                         },250)
                     }else {
                         that.alertText = '登录失败';

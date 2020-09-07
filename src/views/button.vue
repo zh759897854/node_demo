@@ -16,12 +16,10 @@
             <base-button btnText="提交" @confirm="updata"></base-button>
         </div>
         <br>
-        <span>用户：{{role || '--'}}</span><span>自</span><span>{{startDate || '--'}}</span><span>起您的学习时长还剩</span><span>{{date || '--'}}</span><span>小时</span>
-    </div>
+       </div>
 </template>
 
 <script>
-    import axios from 'axios'
     export default {
         data() {
             return {
@@ -37,7 +35,7 @@
             confirm() {
                 let that = this;
                 let roleInfo = JSON.parse(decodeURIComponent(window.localStorage.getItem('roleInfo')));
-                axios.post('/sqlapi/common_api', {
+                this.$http.post('/sqlapi/common_api', {
                     table_name: 'study_status',
                     pageNumber: 1,
                     pageSize: 2
@@ -46,7 +44,7 @@
                     data = data.data_list || {};
                     console.log(data)
                 }).catch(function (error) {
-                    console.log(error);
+                    console.error(error)
                 });
             },
             updata() {
