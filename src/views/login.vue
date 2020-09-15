@@ -61,7 +61,7 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import dataServer from '../common/dataServe'
     export default {
         data() {
             return {
@@ -69,6 +69,16 @@
                 passWord: '',
                 alertText: ''
             }
+        },
+        mounted() {
+            // dataServer({
+            //     method: 'post',
+            //     url: '/get_data',
+            //     data: {
+            //         name: encodeURIComponent('test.data'),
+            //         text: encodeURIComponent('测试数据')
+            //     }
+            // })
         },
         methods: {
             setUser(data) {
@@ -79,37 +89,38 @@
             },
             confirm() {
                 // node+express前端服务器
-                // axios.post('/get_data', {
-                //     name: encodeURIComponent('test.data')
-                // }).then(function (res) {
-                //     console.log(res.data)
-                // }).catch(function (error) {
-                //     console.log(error);
-                // });
-
-                // node+express+mysql前端服务器
-                let that = this;
-                axios.post('/sqlapi/login', {
-                    username: that.userName,
-                    password: that.passWord
+                axios.post('/get_data', {
+                    name: encodeURIComponent('test.data'),
+                    text: encodeURIComponent('测试数据')
                 }).then(function (res) {
-                    var data =  res.data || {};
-                    if (data.status === 200) {
-                        window.localStorage.setItem('roleInfo', encodeURIComponent(JSON.stringify(data.data_list)));
-                        that.alertText = '登录成功';
-                        setTimeout(function () {
-                            that.alertText = '';
-                            that.$router.push({path: '/index'});
-                        },250)
-                    }else {
-                        that.alertText = '登录失败';
-                        setTimeout(function () {
-                            that.alertText = '';
-                        },250);
-                    }
+                    console.log(res.data)
                 }).catch(function (error) {
                     console.log(error);
                 });
+
+                // node+express+mysql前端服务器
+                // let that = this;
+                // axios.post('/sqlapi/login', {
+                //     username: that.userName,
+                //     password: that.passWord
+                // }).then(function (res) {
+                //     var data =  res.data || {};
+                //     if (data.status === 200) {
+                //         window.localStorage.setItem('roleInfo', encodeURIComponent(JSON.stringify(data.data_list)));
+                //         that.alertText = '登录成功';
+                //         setTimeout(function () {
+                //             that.alertText = '';
+                //             that.$router.push({path: '/index'});
+                //         },250)
+                //     }else {
+                //         that.alertText = '登录失败';
+                //         setTimeout(function () {
+                //             that.alertText = '';
+                //         },250);
+                //     }
+                // }).catch(function (error) {
+                //     console.log(error);
+                // });
             }
         }
     }
