@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模拟数据上传</title>
+    <style>
+        .upload {
+            margin: 0 auto;
+        }
+        input {
+            border: 1px solid #e5e5e5;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload">
+        <h3>文件上传</h3>
+        <div>选择一个文件上传，文件数据格式就是模拟接口返回数据格式</div>
+        <form action="/file_upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" size="500" />
+            <br />
+            <input type="submit" value="上传文件" />
+        </form>
+    </div>
+</body>
+</html>
